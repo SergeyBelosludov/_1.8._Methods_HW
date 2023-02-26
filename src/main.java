@@ -1,9 +1,12 @@
 import java.time.LocalDate;
+import java.util.Arrays;
 
 public class main {
     public static void main(String[] args) {
 
-//        Задание 1.
+        System.out.println();
+        System.out.println("***** Задание 1 *****");
+        System.out.println();
 //        Реализуйте метод, который получает в качестве параметра год, а затем проверяет,
 //        является ли он високосным, и выводит результат в консоль.
 //        Эту проверку вы уже реализовывали в задании по условным операторам.
@@ -21,7 +24,9 @@ public class main {
         int year = 2023;
         printAboutYear(year);
 
-//        Задание 2.
+        System.out.println();
+        System.out.println("***** Задание 2 *****");
+        System.out.println();
 //        Вспомним задание 2 по условным операторам, где нам необходимо было предложить пользователю
 //        облегченную версию приложения.
 //        -- Текст прошлого задания:
@@ -60,7 +65,9 @@ public class main {
 
         indicatesInstallOs(0, 2023);
 
-//        Задание 3.
+        System.out.println();
+        System.out.println("***** Задание 3 *****");
+        System.out.println();
 //        Возвращаемся к любимой многими задаче на расчет дней доставки банковской карты от банка.
 //        -- Текст прошлого задания:
 //                Вернемся к делам банковским. У нас хороший банк, поэтому для наших клиентов мы организуем доставку
@@ -82,18 +89,103 @@ public class main {
 
         int deliveryDistance = 95;
         printAboutDeliveryDays(deliveryDistance);
+
+        System.out.println();
+        System.out.println("***** Повышенный уровень. Задание 4 *****");
+        System.out.println();
+/*
+Напишите метод, который получает на вход массив и переставляет все его элементы в обратном порядке.
+Подобное задание вы решали в домашнем задании по массивам.
+- Текст прошлого задания
+        Отойдем от подсчетов.
+        В нашей бухгалтерской книге появился баг. Что-то пошло нет так, и Ф.И.О. сотрудников начали отображаться
+        в обратную сторону. Т. е. вместо «Иванов Иван Иванович» мы имеем «чивонавИ навИ вонавИ».
+        Данные с именами сотрудников хранятся в виде массива символов (char[]).
+        Напишите код, который в случае такого бага будет выводить Ф. И. О. сотрудников в корректном виде.
+        В качестве данных для массива используйте:
+        char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        В результате в консоль должно быть выведено "Ivanov Ivan".
+        **Важно**: не используйте дополнительные массивы для решения этой задачи. Необходимо корректно пройти по
+        массиву циклом и распечатать его элементы в правильном порядке.
+В метод приходит массив, допустим:
+{3, 2, 1, 6, 5}.
+Нужно без вспомогательного массива переместить элементы так, чтобы поданный массив стал: {5, 6, 1, 2, 3}.
+Рекомендуем написать этот метод без возвращаемого значения. Вы будете приятно удивлены, что даже если мы не вернем
+массив, первоначальный массив изменится, когда мы будем модернизировать пришедший в виде параметра массив внутри метода.
+Причину такого поведения ссылочных типов (объектов) вы узнаете на следующем уроке или на QA-вебинаре.
+ */
+
+        int[] initialArray = {3, 2, 1, 6, 5};
+        reversArr(initialArray);
+
+        System.out.println();
+        System.out.println("***** Повышенный уровень. Задание 5 *****");
+        System.out.println();
+        /*
+Вернемся к задаче о валидаторе текста из урока по строкам.
+- Условие задачи из урока 1.7
+        Повышенная сложность. Задание 8
+        Дана строка из букв английского алфавита "aabccddefgghiijjkk".
+        Нужно найти и напечатать буквы, которые дублируются в строке.
+        Обратите внимание, что строка отсортирована, т.е. дубли идут друг за другом.
+        В итоге в консоль должен быть выведен результат программы: "acdgijk".
+        - Критерии оценки
+             – Данные в строке отсортированы корректно.
+             – При изменении содержания строки результат программы выполняется.
+             – Результат программы выведен в консоль согласно условиям задачи.
+Напишите метод, который в виде параметра принимает отсортированную строку.
+Например, aabccddefgghiijjkk.
+С помощью цикла проверьте, что в строке нет дублей, и выведите в консоль сообщение об этом.
+Если дубль найден, нужно прервать поиск по остальным символам и вывести сообщение о присутствии дубля,
+причем с указанием, какой именно символ задублирован. Затем сразу же прервать выполнение метода.
+Сам метод ничего возвращать не должен (void).
+         */
+
+        String withDuplicates = "aabccddefgghiijjkk";
+        selectsDuplicates(withDuplicates);
+
+
+        System.out.println();
+        System.out.println("***** Повышенный уровень. Задание 6 *****");
+        System.out.println();
+        /*
+Снова вспоминаем домашнее задание по массивам. В нем была задача, которая требовала высчитать среднюю выплату за день.
+Был дан сгенерированный массив из 30 значений от 100 до 200 тысяч, для его генерации допускается использовать метод
+из прошлого домашнего задания.
+- Текст прошлого задания
+        Нам нужно понять, какую в среднем сумму наша компания тратила в течение данных 30 дней.
+        Нужно написать программу, которая посчитает среднее значение трат за месяц (то есть сумму всех трат за месяц
+        поделить на количество дней), и вывести в консоль результат в формате: «Средняя сумма трат за месяц
+        составила … рублей».
+        **Важно помнить:** подсчет среднего значения может иметь остаток (то есть быть не целым, а дробным числом).
+Нужно сгенерировать массив, подать его в наш метод, а внутри метода подсчитать сумму элементов и вычислить среднее
+значение, которое нужно вернуть из метода в виде результата.
+Сложность в том, что метод нужно не просто написать, но еще и декомпозировать.
+То есть для работы этого метода нужно будет создать еще методы (1 или более), которые его будут обслуживать и
+вычислять промежуточные результаты. Среднее значение нужно вычислять в дробном виде, так как результат должен быть
+точным.
+- **Критерии оценки**
+        – Методы декомпозированы корректно.
+        – Программа выводит корректный результат при изменении значений массива.
+         */
+        int[] arr = generateRandomArray();
+        double result = countAmount(arr);
+        System.out.println("result = " + result);
     }
 
     // Методы для Задания 1.
     private static boolean isLeapYear(int year) {
         return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
     }
+
     private static void printLeapYear(int year) {
         System.out.println(year + " year is a leap year");
     }
+
     private static void printNotLeapYear(int year) {
         System.out.println(year + " year is not a leap year");
     }
+
     private static void printAboutYear(int year) {
         if (isLeapYear(year)) {
             printLeapYear(year);
@@ -107,6 +199,7 @@ public class main {
         String finalString = printFinalString(clientOS, clientDeviceYear);
         System.out.println(finalString);
     }
+
     private static String printFinalString(int clientOS, int clientDeviceYear) {
         int currentYear = LocalDate.now().getYear();
         StringBuilder stringBuilder = new StringBuilder();
@@ -134,19 +227,76 @@ public class main {
             System.out.println("It will take days: 3");
         }
     }
+
     private static void printError(int deliveryDistance) {
         if (deliveryDistance > 100 || deliveryDistance <= 0) {
             System.out.println("Contact customer support");
         }
     }
+
     private static boolean isDelivery(int deliveryDistance) {
         return deliveryDistance > 0 && deliveryDistance <= 100;
     }
+
     private static void printAboutDeliveryDays(int deliveryDistance) {
         if (isDelivery(deliveryDistance)) {
             calculateDeliveryDays(deliveryDistance);
         } else {
             printError(deliveryDistance);
         }
+    }
+
+    // Методы для: Повышенный уровень. Задание 4
+    private static void reversArr(int[] initialArray) {
+        int n;
+        for (n = initialArray.length - 1; n >= 0; --n) {
+            System.out.print(initialArray[n]);
+        }
+        System.out.println();
+    }
+
+    // Методы для: Повышенный уровень. Задание 5
+    private static void selectsDuplicates(String withDuplicates) {
+        char[] arrayDuplicates = withDuplicates.toCharArray();
+        Arrays.sort(arrayDuplicates);
+        StringBuilder duplicates = new StringBuilder();
+//        boolean
+        for (int i = 0; i < arrayDuplicates.length - 1; i++) {
+//            for (int j = i + 1; j < arrayDuplicates.length; j++) {
+            if (arrayDuplicates[i] == arrayDuplicates[i + 1]) {
+                duplicates.append(arrayDuplicates[i]);
+                System.out.println("Дублируемый символ - " + arrayDuplicates[i]);
+                break;
+            }
+        }
+        if (duplicates.length() == 0) {
+            System.out.println("В строке дублей нет");
+        }
+    }
+
+    // Методы для: Повышенный уровень. Задание 6
+
+    public static int[] generateRandomArray() {
+        java.util.Random random = new java.util.Random();
+        int[] arr = new int[30];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(100_000) + 100_000;
+        }
+        return arr;
+    }
+
+    private static double averageSpent(int[] arr) {
+        int amount = 0;
+        for (int i : arr) {
+            amount += i;
+        }
+        return amount;
+    }
+
+    private static int countAmount(int[] arr) {
+        double amount = averageSpent(arr);
+        double avSpent = amount / (arr.length);
+        System.out.println("Средняя сумма трат за месяц составила " + avSpent + " рублей");
+        return (int) avSpent;
     }
 }
